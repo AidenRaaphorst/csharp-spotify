@@ -2,11 +2,42 @@
 {
     internal static class TestData
     {
-        public static Artist Monuments()
-        {
-            Artist Monuments = new Artist("Monuments", null);
+        public static Artist Monuments = new Artist("Monuments", null);
 
-            Album TheAmanuensis = new Album("The Amanuensis", Monuments);
+        public static Album TheAmanuensis = new Album("The Amanuensis", Monuments);
+        public static Album InStasis = new Album("In Stasis", Monuments);
+
+        public static List<Artist> GetAllArtists()
+        {
+            return new List<Artist>
+            {
+                Monuments,
+            };
+        }
+
+        public static List<Album> GetAllAlbums()
+        {
+            return new List<Album>
+            {
+                TheAmanuensis,
+                InStasis,
+            };
+        }
+
+        public static void PopulateAllData()
+        {
+            PopulateAlbums();
+            PopulateArtists();
+        }
+
+        public static void PopulateArtists()
+        {
+            Monuments.AddAlbum(TheAmanuensis);
+            Monuments.AddAlbum(InStasis);
+        }
+
+        public static void PopulateAlbums()
+        {
             TheAmanuensis.AddSong(new Song("I, The Creator", 233, "Metalcore", null));
             TheAmanuensis.AddSong(new Song("Origin of Escape", 242, "Metalcore", null));
             TheAmanuensis.AddSong(new Song("Atlas", 201, "Metalcore", null));
@@ -19,9 +50,9 @@
             TheAmanuensis.AddSong(new Song("I, The Destroyer", 345, "Metalcore", null));
             TheAmanuensis.AddSong(new Song("Samsara", 310, "Metalcore", null));
 
-            Monuments.AddAlbum(TheAmanuensis);
-
-            return Monuments;
+            InStasis.AddSong(new Song("No One Will Teach You", 299, "Metalcore", null));
+            InStasis.AddSong(new Song("Lavos", 250, "Metalcore", null));
+            // Ik moet nog meer nummers toevoegen
         }
     }
 }

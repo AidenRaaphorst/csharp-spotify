@@ -15,10 +15,10 @@
             this.ReleaseDate = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
         }
 
-        public Album(string title, Artist artist)
+        public Album(string title, params Artist[] artists)
         {
             this.Title = title;
-            this.Artists = new List<Artist> { artist };
+            this.Artists = artists.ToList();
             this.Songs = new List<Song>();
             this.ReleaseDate = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
         }
