@@ -4,10 +4,9 @@
     {
         static void Main(string[] args)
         {
-            TestData.PopulateAllData();
-            List<Artist> Artists = TestData.GetAllArtists();
-            List<Album> Albums = TestData.GetAllAlbums();
             User user = new User("Gebruiker");
+            List<Artist> Artists = TestData.GetAllArtists();
+            TestData.PopulateAllData();
 
             Clear();
             Console.WriteLine($"Welkom {user.Name}!");
@@ -16,27 +15,33 @@
             Console.WriteLine("1. Liked Songs");
             for(int i = 0; i < user.Playlists.Count; i++)
             {
-                Console.WriteLine($"{i + 2}. {user.Playlists[i].Name}");
+                Console.WriteLine(user.Playlists[i].Name);
             }
 
             Console.WriteLine("\nHier zijn wat artiesten:");
             for (int i = 0; i < Artists.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. {Artists[i].Name}");
+                Console.WriteLine(Artists[i].Name);
             }
 
-            Console.Write("\nTyp 'a' voor artiesten, 'p' voor playlists, 'f' voor vrienden: ");
-            ConsoleKey choice1 = WaitForKey(ConsoleKey.A, ConsoleKey.P, ConsoleKey.F);
+            Console.WriteLine("\n1. Artiesten");
+            Console.WriteLine("2. Playlists");
+            Console.WriteLine("3. Vrienden");
+            Console.Write("Maak een keuze: ");
+            ConsoleKey choice1 = WaitForKey(ConsoleKey.D1, ConsoleKey.D2, ConsoleKey.D3);
 
-            if(choice1 == ConsoleKey.A)
+            if(choice1 == ConsoleKey.D1)
             {
                 // Go to artists
+                Console.WriteLine("artists");
             }
-            else if(choice1 == ConsoleKey.P)
+            else if(choice1 == ConsoleKey.D2)
             {
+                Console.WriteLine("playlists");
                 // Go to playlists
             } else
             {
+                Console.WriteLine("friends");
                 // Go to friends
             }
         }
@@ -56,11 +61,6 @@
             Console.WriteLine("=============");
             Console.WriteLine("   Spotify   ");
             Console.WriteLine("=============\n");
-        }
-
-        void ShowUsers()
-        {
-
         }
 
         static ConsoleKey WaitForKey(params ConsoleKey[] allowedKeys)

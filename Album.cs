@@ -7,22 +7,6 @@
         public List<Song> Songs { get; private set; }
         public long ReleaseDate { get; private set; }
 
-        public Album(string title, List<Artist> artists, List<Song> songs)
-        {
-            this.Title = title;
-            this.Artists = artists;
-            this.Songs = songs;
-            this.ReleaseDate = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-        }
-
-        public Album(string title, params Artist[] artists)
-        {
-            this.Title = title;
-            this.Artists = artists.ToList();
-            this.Songs = new List<Song>();
-            this.ReleaseDate = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-        }
-
         public Album(string title)
         {
             this.Title = title;
@@ -43,13 +27,7 @@
 
         public void AddSong(params Song[] songs)
         {
-            foreach (Song song in songs)
-            {
-                if(!songs.Contains(song))
-                {
-                    this.Songs.Add(song);
-                }
-            }
+            this.Songs.AddRange(songs);
         }
 
         public void RemoveSong(params Song[] songs)

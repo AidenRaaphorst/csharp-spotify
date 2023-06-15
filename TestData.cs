@@ -2,10 +2,12 @@
 {
     internal static class TestData
     {
-        public static Artist Monuments = new Artist("Monuments", null);
+        public static Artist Monuments = new Artist("Monuments");
 
-        public static Album TheAmanuensis = new Album("The Amanuensis", Monuments);
-        public static Album InStasis = new Album("In Stasis", Monuments);
+        public static Album TheAmanuensis = new Album("The Amanuensis");
+        public static Album InStasis = new Album("In Stasis");
+
+        public static User friend1 = new User("Friend 1");
 
         public static List<Artist> GetAllArtists()
         {
@@ -53,6 +55,11 @@
             InStasis.AddSong(new Song("No One Will Teach You", 299, "Metalcore", null));
             InStasis.AddSong(new Song("Lavos", 250, "Metalcore", null));
             // Ik moet nog meer nummers toevoegen
+        }
+
+        public static void PopulateFriends()
+        {
+            
         }
     }
 }

@@ -6,29 +6,16 @@
         public List<Song> Songs { get; private set; }
         public List<User> Authors { get; private set; }
         
-        public Playlist(string name, List<Song> songs, List<User> authors)
+        public Playlist(string name, List<Song> songs, params User[] authors)
         {
             this.Name = name;
             this.Songs = songs;
-            this.Authors = authors;
-        }
-
-        public Playlist(string name, List<Song> songs, User author)
-        {
-            this.Name = name;
-            this.Songs = songs;
-            this.Authors = new List<User>() { author };
+            this.Authors = authors.ToList();
         }
 
         public void AddSong(params Song[] songs)
         {
-            foreach (Song song in songs)
-            {
-                if(!this.Songs.Contains(song))
-                {
-                    this.Songs.Add(song);
-                }
-            }
+            this.Songs.AddRange(songs);
         }
 
         public void RemoveSong(params Song[] songs)
@@ -41,13 +28,7 @@
 
         public void AddAuthor(params User[] authors)
         {
-            foreach (User author in authors)
-            {
-                if (!this.Authors.Contains(author))
-                {
-                    this.Authors.Add(author);
-                }
-            }
+            this.Authors.AddRange(authors);
         }
 
         public void RemoveAuthor(params User[] authors)
