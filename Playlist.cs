@@ -13,30 +13,57 @@
             this.Authors = authors.ToList();
         }
 
-        public void AddSong(params Song[] songs)
+        public Playlist(string name, params User[] authors)
         {
-            this.Songs.AddRange(songs);
+            this.Name = name;
+            this.Songs = new List<Song>();
+            this.Authors = authors.ToList();
         }
 
-        public void RemoveSong(params Song[] songs)
+        public void AddSong(Song song)
         {
-            foreach (Song song in songs)
+            this.Songs.Add(song);
+        }
+
+        public void RemoveSong(Song song)
+        {
+            this.Songs.Remove(song);
+        }
+
+        public void AddSongsFromAlbum(Album album)
+        {
+            this.Songs.AddRange(album.Songs);
+        }
+
+        public void RemoveSongsFromAlbum(Album album)
+        {
+            foreach(Song song in album.Songs)
             {
                 this.Songs.Remove(song);
             }
         }
 
-        public void AddAuthor(params User[] authors)
+        public void AddSongsFromPlaylist(Playlist playlist)
         {
-            this.Authors.AddRange(authors);
+            this.Songs.AddRange(playlist.Songs);
         }
 
-        public void RemoveAuthor(params User[] authors)
+        public void RemoveSongsFromPlaylist(Playlist playlist)
         {
-            foreach (User author in authors)
+            foreach (Song song in playlist.Songs)
             {
-                this.Authors.Remove(author);
+                this.Songs.Remove(song);
             }
+        }
+
+        public void AddAuthor(User author)
+        {
+            this.Authors.Add(author);
+        }
+
+        public void RemoveAuthor(User author)
+        {
+            this.Authors.Remove(author);
         }
     }
 }

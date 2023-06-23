@@ -4,74 +4,43 @@
     {
         static void Main(string[] args)
         {
-            User user = new User("Gebruiker");
-            List<Artist> Artists = TestData.GetAllArtists();
-            TestData.PopulateAllData();
+            Client client = new Client();
 
-            Clear();
-            Console.WriteLine($"Welkom {user.Name}!");
-
-            Console.WriteLine("\nHier zijn je playlists:");
-            Console.WriteLine("1. Liked Songs");
-            for(int i = 0; i < user.Playlists.Count; i++)
+            bool stop = false;
+            while (!stop)
             {
-                Console.WriteLine(user.Playlists[i].Name);
-            }
+                client.Clear();
+                Console.WriteLine("Wat wil je doen?\n");
 
-            Console.WriteLine("\nHier zijn wat artiesten:");
-            for (int i = 0; i < Artists.Count; i++)
-            {
-                Console.WriteLine(Artists[i].Name);
-            }
+                Console.WriteLine("1. Artiesten bekijken");
+                Console.WriteLine("2. Playlists bekijken");
+                Console.WriteLine("3. Vriendenlijst bekijken");
+                Console.WriteLine("4. Gebruikers bekijken");
+                Console.WriteLine("0. Stoppen");
+                Console.Write("\nMaak een keuze: ");
+                string choice1 = Console.ReadLine();
 
-            Console.WriteLine("\n1. Artiesten");
-            Console.WriteLine("2. Playlists");
-            Console.WriteLine("3. Vrienden");
-            Console.Write("Maak een keuze: ");
-            ConsoleKey choice1 = WaitForKey(ConsoleKey.D1, ConsoleKey.D2, ConsoleKey.D3);
-
-            if(choice1 == ConsoleKey.D1)
-            {
-                // Go to artists
-                Console.WriteLine("artists");
-            }
-            else if(choice1 == ConsoleKey.D2)
-            {
-                Console.WriteLine("playlists");
-                // Go to playlists
-            } else
-            {
-                Console.WriteLine("friends");
-                // Go to friends
-            }
-        }
-
-        static void Clear(bool title = true)
-        {
-            Console.Clear();
-
-            if(title)
-            {
-                ShowTitle();
-            }
-        }
-
-        static void ShowTitle()
-        {
-            Console.WriteLine("=============");
-            Console.WriteLine("   Spotify   ");
-            Console.WriteLine("=============\n");
-        }
-
-        static ConsoleKey WaitForKey(params ConsoleKey[] allowedKeys)
-        {
-            while (true)
-            {
-                ConsoleKey key = Console.ReadKey(true).Key;
-
-                if (allowedKeys.Contains(key))
+                switch (choice1)
                 {
-                    return key;
+                    case "1":
+                        client.ArtistsMenu();
+                        break;
+
+                    case "2":
+                        client.UserPlaylistsMenu();
+                        break;
+
+                    case "3":
+                        client.FriendsMenu();
+                        break;
+
+                    case "4":
+                        client.UsersMenu();
+                        break;
+
+                    case "0":
+                        stop = true;
+                        break;
                 }
             }
         }

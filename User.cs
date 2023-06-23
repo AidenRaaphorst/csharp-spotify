@@ -44,5 +44,13 @@
         {
             this.Playlists.Remove(playlist);
         }
+
+        public void ShowFriends(bool showIndex = true)
+        {
+            for(int i = 0; i < this.Friends.Count; i++)
+            {
+                Console.WriteLine(showIndex ? $"{i+1}. " : "" + this.Friends[0].Name);
+            }
+        }
     }
 }

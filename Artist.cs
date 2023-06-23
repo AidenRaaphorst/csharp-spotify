@@ -2,39 +2,33 @@
 {
     internal class Artist : User
     {
-        public readonly List<Song> Songs;
+        public readonly List<Song> Singles;
         public readonly List<Album> Albums;
 
         public Artist(string name) : base(name)
         {
-            this.Songs = new List<Song>();
+            this.Singles = new List<Song>();
             this.Albums = new List<Album>();
         }
 
-        public void AddSong(params Song[] songs)
+        public void AddSong(Song song)
         {
-            this.Songs.AddRange(songs);
+            this.Singles.Add(song);
         }
 
-        public void RemoveSong(params Song[] songs)
+        public void RemoveSong(Song song)
         {
-            foreach (Song song in songs)
-            {
-                this.Songs.Remove(song);
-            }
+            this.Singles.Remove(song);
         }
 
-        public void AddAlbum(params Album[] albums)
+        public void AddAlbum(Album album)
         {
-            this.Albums.AddRange(albums);
+            this.Albums.Add(album);
         }
 
-        public void RemoveAlbum(params Album[] albums)
+        public void RemoveAlbum(Album album)
         {
-            foreach (Album album in albums)
-            {
-                this.Albums.Remove(album);
-            }
+            this.Albums.Remove(album);
         }
     }
 }

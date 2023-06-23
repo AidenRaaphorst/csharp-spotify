@@ -2,17 +2,15 @@
 {
     internal class Album
     {
-        public string Title { get; private set; }
-        public List<Artist> Artists { get; private set; }
+        public string Name { get; private set; }
+        public List<Artist> Artists { get; private set; } = new List<Artist>();
         public List<Song> Songs { get; private set; }
-        public long ReleaseDate { get; private set; }
 
-        public Album(string title)
+        public Album(string name, params Artist[] artists)
         {
-            this.Title = title;
-            this.Artists = new List<Artist>();
+            this.Name = name;
+            this.Artists.AddRange(artists);
             this.Songs = new List<Song>();
-            this.ReleaseDate = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
         }
 
         public void AddArtist(Artist artist)
@@ -25,17 +23,14 @@
             this.Artists.Remove(artist);
         }
 
-        public void AddSong(params Song[] songs)
+        public void AddSong(Song song)
         {
-            this.Songs.AddRange(songs);
+            this.Songs.Add(song);
         }
 
-        public void RemoveSong(params Song[] songs)
+        public void RemoveSong(Song song)
         {
-            foreach (Song song in songs)
-            {
-                this.Songs.Remove(song);
-            }
+            this.Songs.Remove(song);
         }
     }
 }

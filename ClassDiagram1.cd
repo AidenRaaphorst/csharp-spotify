@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Spotify.Album">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <AssociationLine Name="Artists" Type="Spotify.Artist">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.102" Y="0.1" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Songs" Type="Spotify.Song" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10" Y="1.5" />
+        <Point X="10" Y="0.236" />
+        <Point X="1.5" Y="0.236" />
+        <Point X="1.5" Y="1" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.046" Y="0.232" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAEAAQEAAAAAAAAAEAAAAgAgAA=</HashCode>
+      <FileName>Album.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Artists" />
+      <Property Name="Songs" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Spotify.Artist">
+    <Position X="6.75" Y="1.25" Width="1.5" />
+    <InheritanceLine Type="Spotify.User" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.25" Y="1.375" />
+        <Point X="6.75" Y="1.375" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="Singles" Type="Spotify.Song" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.25" Y="1.25" />
+        <Point X="7.25" Y="0.646" />
+        <Point X="2.5" Y="0.646" />
+        <Point X="2.5" Y="1" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.821" Y="0.379" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Albums" Type="Spotify.Album">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.199" Y="0.089" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAABgAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAASAAAgAA=</HashCode>
+      <FileName>Artist.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="Singles" />
+      <Field Name="Albums" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Spotify.Client">
+    <Position X="6.75" Y="4.5" Width="2.25" />
+    <AssociationLine Name="User" Type="Spotify.User" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.75" Y="6.639" />
+        <Point X="5.375" Y="6.639" />
+        <Point X="5.375" Y="4.353" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Artists" Type="Spotify.Artist" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.5" Y="4.5" />
+        <Point X="7.5" Y="3.876" />
+        <Point X="7.5" Y="3.876" />
+        <Point X="7.5" Y="3.252" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Users" Type="Spotify.User" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.75" Y="5.22" />
+        <Point X="5.562" Y="5.22" />
+        <Point X="5.562" Y="4.353" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.699" Y="0.118" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AQADACAACBAABABIgAAGAAQAAAkAAAEAElAICEFQGCA=</HashCode>
+      <FileName>Client.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="Albums" />
+      <Field Name="Artists" />
+      <Field Name="Users" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Spotify.Playlist">
+    <Position X="0.5" Y="5" Width="2.25" />
+    <AssociationLine Name="Songs" Type="Spotify.Song" FixedFromPoint="true">
+      <Path>
+        <Point X="1.438" Y="5" />
+        <Point X="1.438" Y="3.391" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Authors" Type="Spotify.User" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2" Y="5" />
+        <Point X="2" Y="3.903" />
+        <Point X="3.5" Y="3.903" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAIAAEAAAAAEAAQEAABAAAAABBAIAAAAgAA=</HashCode>
+      <FileName>Playlist.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Songs" />
+      <Property Name="Authors" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Spotify.Program">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spotify.Song">
+    <Position X="1.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAIAAAQAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Song.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spotify.TestData">
+    <Position X="11.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAKAQAAAAAYAIFAEAwEAAAgAQAAQAAAAAAEAAAA=</HashCode>
+      <FileName>TestData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spotify.User">
+    <Position X="3.5" Y="1" Width="2.75" />
+    <AssociationLine Name="LikedSongs" Type="Spotify.Playlist" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.812" Y="4.353" />
+        <Point X="3.812" Y="6.112" />
+        <Point X="2.75" Y="6.112" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Playlists" Type="Spotify.Playlist" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.062" Y="4.353" />
+        <Point X="4.062" Y="7.399" />
+        <Point X="2.75" Y="7.399" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAEQIIAABAAAEAAAAAAAAAQAAAIAAAAAAAAMAAAAEAA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="LikedSongs" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="Playlists" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
